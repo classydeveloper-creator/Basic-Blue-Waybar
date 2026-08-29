@@ -1,7 +1,7 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 10,
+    "height": 5,
     "spacing": 5,
     "modules-left": ["group/net","hyprland/window"],
     "modules-center": ["mpris"],
@@ -16,13 +16,32 @@
     },
     "clock": {
         "format": "{:%I:%M %p}",
+        "format-alt": "{:%Y-%m-%d}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "year",
+            "mode-mon-col": 6,
+            "weeks-pos": "right",
+            "format": {
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "days": "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#ff6666'><b><u>{}</u></b></span>"
+            }
+        },
         "on-click": "konsole --new-tab -e calcurse"
     },
     "wireplumber": {
         "format": "\udb81\udd7e {volume}%",
+        "format-muted": "󰖁 Muted",
         "max-volume": 100,
         "scroll-step": 5,
         "on-click": "pavucontrol"
+    },
+    "tray": {
+        "icon-size": 13,
+        "spacing": 4
     },
     "bluetooth": {
         "format": "\udb80\udcaf",
@@ -33,10 +52,6 @@
         "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
         "on-click": "blueman-manager"
     },
-    "tray": {
-        "icon-size": 16,
-        "spacing": 5
-    },
     "mpris": {
         "format": "{player_icon} {title}",
         "format-paused": "{status_icon} <i>{title}</i>",
@@ -46,11 +61,10 @@
         "status-icons": {
             "paused": "⏸"
         },
-        "max-length": 50,
-        "dynamic-len": 50
+        "max-length": 50
     },
     "hyprland/window": {
-        "format": "{title}",
+        "format": "<i>{title}</i>",
         "separate-outputs": true,
         "max-length": 40,
         "empty-format": "?"
